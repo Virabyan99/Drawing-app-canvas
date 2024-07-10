@@ -11,15 +11,15 @@ body {
 }
 
 .heading {
-    font-size: 40px;
-    margin-top: 0;
-    padding-top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideInFade 1s forwards;
+  font-size: 40px;
+  margin-top: 0;
+  padding-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInFade 1s forwards;
 }
 
 canvas {
@@ -72,12 +72,58 @@ canvas {
 }
 
 @keyframes slideInFade {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media query for screens with a width of 720px or smaller */
+@media (max-width: 720px) {
+  .heading {
+    font-size: 30px;
+  }
+
+  body {
+    padding: 20px;
+  }
+
+  .tools {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tools .color-field,
+  .tools .button,
+  .color-picker,
+  .pen-range {
+    margin: 10px 0;
+  }
+}
+
+/* Media query for screens with a width of 480px or smaller */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 20px;
+  }
+
+  body {
+    padding: 10px;
+  }
+
+  .tools {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tools .color-field,
+  .tools .button,
+  .color-picker,
+  .pen-range {
+    margin: 5px 0;
+  }
 }
