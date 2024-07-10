@@ -10,6 +10,18 @@ body {
   background: #9bcaee;
 }
 
+.heading {
+    font-size: 40px;
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInFade 1s forwards;
+}
+
 canvas {
   box-shadow: -3px 2px 9px 6px black;
   cursor: pointer;
@@ -57,4 +69,15 @@ canvas {
 .pen-range {
   align-self: center;
   margin: 0 10px;
+}
+
+@keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
