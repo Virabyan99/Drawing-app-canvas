@@ -18,8 +18,8 @@ function change_color(element) {
   draw_color = element.style.background;
 }
 
-canvas.addEventListener('touchstart', start, false);
-canvas.addEventListener('touchmove', draw, false);
+canvas.addEventListener('touchstart', start, { passive: false });
+canvas.addEventListener('touchmove', draw, { passive: false });
 canvas.addEventListener('mousedown', start, false);
 canvas.addEventListener('mousemove', draw, false);
 
@@ -46,7 +46,7 @@ function start(event) {
   context.beginPath();
   let pos = getEventPosition(event);
   context.moveTo(pos.x, pos.y);
-  event.preventDefault();
+  event.preventDefault(); // Prevent default only when drawing starts
 }
 
 function draw(event) {
@@ -58,8 +58,8 @@ function draw(event) {
     context.lineCap = 'round';
     context.lineJoin = 'round';
     context.stroke();
+    event.preventDefault(); // Prevent default during drawing to avoid scrolling
   }
-  event.preventDefault();
 }
 
 function stop(event) {
@@ -68,8 +68,7 @@ function stop(event) {
     context.closePath();
     is_drawing = false;
   }
-  event.preventDefault();
-  if (event.type != 'mouseout') {
+  if (event.type !== 'mouseout') {
     restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
     index += 1;
   }
